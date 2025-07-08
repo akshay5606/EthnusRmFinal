@@ -57,7 +57,7 @@ const Cart = () => {
       ) : (
         <>
           <ul>
-            {cart.map(item => (
+            {Array.isArray(cart) && cart.map(item => (
               <li key={item._id}>
                 <div>
                   <strong>{item.title}</strong> — ₹{item.price} × {item.quantity}
