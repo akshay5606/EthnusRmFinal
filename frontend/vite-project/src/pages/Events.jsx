@@ -68,7 +68,7 @@ const Events = () => {
 
       <h2>All Events</h2>
       <ul>
-        {events.map((e) => (
+        {Array.isArray(events) && events.map((e) => (
           <li key={e._id}>
             <div>
               <strong>{e.title}</strong> — {e.date} — ₹{e.price}
