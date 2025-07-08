@@ -3,19 +3,29 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
-
+import path from 'path';
 import eventRoutes from './routes/eventRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
 import purchaseRoutes from './routes/purchaseRoutes.js';
+import {fileURLToPath} from 'url';
 
 dotenv.config(); // ✅ Load .env file first
 
 const app = express();
-//const path = require('path');
-//app.use(express.static(path.join(__dirname, '../frontend/vite-project/dist')));
-//app.get('*', (req, res) => {
-//  res.sendFile(path.join(__dirname, '../frontend/vite-project/dist/index.html'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+ 
+// Serve static files
+app.use(express.static(path.join(__dirname, '../frontend/vite-project/dist')));
+// Fallback to index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/vite-project/dist/index.html'));
+});
+ 
+//const PORT = process.env.PORT || 5000;
+//app.listen(PORT, () => {
+ // console.log(`Server running on port ${PORT}`);
 //});
 // Middleware
 app.use(cors());
