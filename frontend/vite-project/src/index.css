@@ -1,0 +1,221 @@
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Center all headings */
+h1, h2, h3 {
+  text-align: center;
+}
+
+/* Center button containers */
+main,
+form,
+ul,
+li,
+footer,
+.nav,
+button,
+p {
+  text-align: center;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url('/lords.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  color: #e0c27b;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Black Header */
+header {
+  background-color: #000000;
+  color: #e0c27b;
+  text-align: center;
+  padding: 22px 0;
+  font-size: 28px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Black Navigation Bar with Gold Text */
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  background-color: #000000;
+  padding: 16px;
+  
+}
+
+nav a, nav button {
+  color: #e0c27b;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover, nav button:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+main {
+  flex: 1;
+  padding: 30px 20px;
+}
+
+/* Gold Buttons */
+button {
+  background-color: #e0c27b;
+  color: #000;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #c9a34e;
+  color: white;
+}
+
+/* Forms & Lists */
+form {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  max-width: 420px;
+  margin: auto;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+input {
+  padding: 12px;
+  border: 2px solid #e0c27b;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+input:focus {
+  border-color: #c9a34e;
+  outline: none;
+}
+
+/* Cart/Event Items */
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+li {
+  background: white;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+  margin-bottom: 16px;
+}
+
+/* Footer */
+.bordered-footer {
+  background-color: #000000;
+  border-top: 1px solid #444;
+  padding: 24px 16px;
+  margin-top: auto;
+  text-align: center;
+  font-size: 14px;
+  color: #e0c27b;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.footer-links, .footer-social {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a, .footer-social a {
+  color: #e0c27b;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-links a:hover, .footer-social a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  font-size: 13px;
+  color: #cccccc;
+  margin-top: 10px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  form {
+    width: 90%;
+  }
+
+  li {
+    flex-direction: column;
+  }
+}
