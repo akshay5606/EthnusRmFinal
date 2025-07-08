@@ -16,32 +16,30 @@ const Cart = () => {
   const token = localStorage.getItem("token");
 
   const buyAll = async () => {
-    try {
-      for (let item of cart) {
-        for (let i = 0; i < item.quantity; i++) {
-          await axios.post(`/api/events/buy/${item._id}`);
-        }
-
-        if (token) {
-          await axios.post('/api/purchases', {
-            eventId: item._id,
-            quantity: item.quantity
-          }, {
-            headers: {
-             Authorization: `Bearer ${token}`
-            }
-          });
-        }
-      }
-      
-      alert("Tickets purchased!");
-      localStorage.removeItem("cart");
-      setCart([]);
-    } catch (err) {
-      console.error("Purchase failed", err);
-      alert("Failed to purchase tickets.");
+  try {
+    const userId = localStorage.getItem("userId");
+    if (!userId) {
+      alert("User ID missing, please login again");
+      return;
     }
-  };
+ 
+    for (let item of cart) {
+      // You can still do event-specific logic here if needed
+await axios.post('/api/purchases', {
+        userId,
+        eventId: item._id,
+        quantity: item.quantity,
+      });
+    }
+ 
+    alert("Tickets purchased!");
+    localStorage.removeItem("cart");
+    setCart([]);
+  } catch (err) {
+    console.error("Purchase failed", err);
+    alert("Failed to purchase tickets.");
+  }
+};
 
   const removeItem = (id) => {
     const updated = cart.filter(item => item._id !== id);
