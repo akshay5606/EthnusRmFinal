@@ -69,7 +69,7 @@ function App() {
             <a href="https://instagram.com" target="_blank" rel="noreferrer">📷 Instagram</a> &nbsp;
             <a href="https://linkedin.com" target="_blank" rel="noreferrer">💼 LinkedIn</a>
           </div>
-          <p style={{ fontSize: '13px', marginTop: '8px', color: '#888' }}>© {new Date().getFullYear()} Event Management System by Ramit</p>
+          <p style={{ fontSize: '13px', marginTop: '8px', color: '#888' }}>© {new Date().getFullYear()} Event Management System</p>
         </footer>
       </div>
     </Router>
