@@ -24,7 +24,7 @@ const Purchases = () => {
     <div>
       <h1>Past Purchases</h1>
       <ul>
-        {purchases.map((item, idx) => (
+        {Array.isArray(purchases)  && purchases.map((item, idx) => (
           <li key={idx}>{item.title} — {item.date} — ₹{item.price}</li>
         ))}
       </ul>
