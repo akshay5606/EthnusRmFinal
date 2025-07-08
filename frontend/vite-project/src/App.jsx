@@ -12,6 +12,7 @@ const NavBar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('userId');
     alert('Logged out successfully.');
     navigate('/login');
   };
