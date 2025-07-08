@@ -4,8 +4,8 @@
   },
    "scripts": {
     "start": "node server.js",
-   "frontend-build": "echo 'Current dir:' && pwd && ls && cd vite-project && npm install && npm run build",
-    "backend-build": "npm install",
+   "frontend-build": "echo 'Current dir:' && pwd && ls && npm install && npm run build",
+    "backend-build": "cd backend && npm install",
     "build": "npm run frontend-build && npm run backend-build",
     "dev":   "nodemon server.js"
 }
