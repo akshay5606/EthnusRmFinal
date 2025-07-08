@@ -12,7 +12,11 @@ import purchaseRoutes from './routes/purchaseRoutes.js';
 dotenv.config(); // ✅ Load .env file first
 
 const app = express();
-
+const path = require('path');
+app.use(express.static(path.join(__dirname, '../frontend/vite-project/dist')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/vite-project/dist/index.html'));
+});
 // Middleware
 app.use(cors());
 app.use(express.json());
